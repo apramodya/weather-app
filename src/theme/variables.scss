@@ -23,6 +23,8 @@ $tabs-md-tab-text-color: color($colors, light);
 
 $list-background-color: color($colors, primary);
 $list-text-color: color($colors, light);
+
+$label-md-text-color: white;
 @import 'ionic.theme.default';
 @import "ionic.ionicons";
 @import "roboto";
