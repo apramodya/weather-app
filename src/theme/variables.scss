@@ -21,7 +21,8 @@ $tabs-background: color($colors, primary);
 $tabs-tab-color-active: color($colors, dark);
 $tabs-md-tab-text-color: color($colors, light);
 
-
+$list-background-color: color($colors, primary);
+$list-text-color: color($colors, light);
 @import 'ionic.theme.default';
 @import "ionic.ionicons";
 @import "roboto";

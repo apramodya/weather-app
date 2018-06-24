@@ -9,12 +9,11 @@ export class WeatherProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello WeatherProvider Provider');
-    this.url = 'http://samples.openweathermap.org/data/2.5/weather?q=';
+    this.url = 'http://api.openweathermap.org/data/2.5/weather?q=';
   }
 
   getWeather(city) {
-    return this.http.get(this.url + city + '&appid=' + this.apiKey).map(data => {
-      data
-    });
+    return this.http.get(this.url + city + '&units=metric&appid=' + this.apiKey)
+      .map(res => res);
   }
 }

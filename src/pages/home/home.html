@@ -5,13 +5,40 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col>
+        <h2 class="location">{{ weather.name}}</h2>
+        <div class="icon"><img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" alt="weather"></div>
+        <h3 class="desc">{{weather.weather[0].main}}</h3>
+        <h3 class="desc2">{{weather.weather[0].description}}</h3>
+        <h3 class="temp">{{weather.main.temp}}<sup>o</sup> C</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <strong>Max Temperature: {{weather.main.temp_max}}<sup>o</sup> C</strong>
+          </ion-item>
+          <ion-item>
+            <strong>Min Temperature: {{weather.main.temp_min}}<sup>o</sup> C</strong>
+          </ion-item>
+          <ion-item>
+            <strong>Pressure: {{weather.main.pressure}} Pa</strong>
+          </ion-item>
+          <ion-item>
+            <strong>Humidity: {{weather.main.humidity}}%</strong>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="!weather">
+    <ion-row>
+      <ion-col>
+        <h3 class="desc">City Not Found</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
